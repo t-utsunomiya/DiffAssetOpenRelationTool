@@ -1,0 +1,2 @@
+# DiffAssetOpenRelationTool
+TortoiseSVN などから DiffAssetOpen プラグインを開くための連携ツール
