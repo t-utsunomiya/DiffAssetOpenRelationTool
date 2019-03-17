@@ -32,5 +32,5 @@ TortoiseSVN などから DiffAssetOpen プラグインを開くための連携�
 ## 注意点
 - 差分を見るときは UE4 を開いた状態で行ってください。
 
-## 仕様ツール
+## 主な使用ツール
 - [AutoHotKey](https://www.autohotkey.com/) (v1.1.30.00) を使用しています。
