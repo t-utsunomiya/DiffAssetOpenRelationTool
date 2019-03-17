@@ -29,6 +29,7 @@ TortoiseSVN などから DiffAssetOpen プラグインを開くための連携�
 
 3. 設定を終えたら TortoiseSVN のコミットログから .uasset ファイルをダブルクリックするなどして UE4 の DiffAsset ツールが開けます。
 
+[![](https://img.youtube.com/vi/PoC-79Rl0C0/0.jpg)](https://www.youtube.com/watch?v=PoC-79Rl0C0)
 ## 注意点
 - 差分を見るときは UE4 を開いた状態で行ってください。
 
