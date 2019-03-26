@@ -21,10 +21,10 @@ UE4WindowExe := "UE4Editor.exe"
 OpenDiffAsset(ByRef LeftPath, ByRef RightPath, ByRef LeftAssetName, ByRef RightAssetName)
 {
 	BlockInput, on
-	SendInput, !{l down}{l up}^{a down}{a up}%LeftPath%
-	SendInput, !{r down}{r up}^{a down}{a up}%RightPath%
-	SendInput, !{e down}{e up}^{a down}{a up}%LeftAssetName%
-	SendInput, !{i down}{i up}^{a down}{a up}%RightAssetName%
+	SendInput, ^{a down}{a up}%LeftPath%
+	SendInput, {Tab down}{Tab up}^{a down}{a up}%RightPath%
+	SendInput, {Tab down}{Tab up}^{a down}{a up}%LeftAssetName%
+	SendInput, {Tab down}{Tab up}^{a down}{a up}%RightAssetName%
 	SendInput, {Tab}{Enter}
 	BlockInput, off
 }
@@ -38,26 +38,17 @@ SetTitleMatchMode 3 ; タイトル検索方法は完全一致を指定
 ; UE4Editor が立ち上がっているかどうか
 IfWinExist ahk_class %UE4WindowClass% ahk_exe %UE4WindowExe%
 {
-	; DiffAssetOpenDialog が開いているかどうか
-	IfWinExist, %DiffAssetWindowTitle% ahk_class %UE4WindowClass% ahk_exe %UE4WindowExe%
+	WinActivate ahk_class %UE4WindowClass% ahk_exe %UE4WindowExe%
+	OpenDialog()
+	WinWaitActive, %DiffAssetWindowTitle% ahk_class %UE4WindowClass% ahk_exe %UE4WindowExe%, , 0
+	If ErrorLevel <> 0
 	{
-		WinActivate %DiffAssetWindowTitle% ahk_class %UE4WindowClass% ahk_exe %UE4WindowExe%
-		OpenDiffAsset(LeftPath, RightPath, LeftAssetName, RightAssetName)
+		Msgbox, %DiffAssetWindowTitle% が開きませんでした。`n UE4 の DiffAssetOpen プラグインを有効にして、ショートカットキー(Ctrl+Alt+Shift+d)で%DiffAssetWindowTitle% が開く設定になっているか確認してください。
 	}
 	Else
 	{
-		WinActivate ahk_class %UE4WindowClass% ahk_exe %UE4WindowExe%
-		OpenDialog()
-		WinWaitActive, %DiffAssetWindowTitle% ahk_class %UE4WindowClass% ahk_exe %UE4WindowExe%, , 0
-		If ErrorLevel <> 0
-		{
-			Msgbox, %DiffAssetWindowTitle% が開きませんでした。`n UE4 の DiffAssetOpen プラグインを有効にして、ショートカットキー(Ctrl+Alt+Shift+d)で%DiffAssetWindowTitle% が開く設定になっているか確認してください。
-		}
-		Else
-		{
-			WinActivate %DiffAssetWindowTitle% ahk_class %UE4WindowClass% ahk_exe %UE4WindowExe%
-			OpenDiffAsset(LeftPath, RightPath, LeftAssetName, RightAssetName)
-		}
+		WinActivate %DiffAssetWindowTitle% ahk_class %UE4WindowClass% ahk_exe %UE4WindowExe%
+		OpenDiffAsset(LeftPath, RightPath, LeftAssetName, RightAssetName)
 	}
 }
 Else
