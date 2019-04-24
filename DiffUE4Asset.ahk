@@ -16,7 +16,6 @@ LeftAssetName = %3%
 RightAssetName = %4%
 DiffAssetWindowTitle := "DiffAssetOpenDialog"
 UE4WindowClass := "UnrealWindow"
-UE4WindowExe := "UE4Editor.exe"
 
 OpenDiffAsset(ByRef LeftPath, ByRef RightPath, ByRef LeftAssetName, ByRef RightAssetName)
 {
@@ -36,18 +35,18 @@ OpenDialog()
 
 SetTitleMatchMode 3 ; タイトル検索方法は完全一致を指定
 ; UE4Editor が立ち上がっているかどうか
-IfWinExist ahk_class %UE4WindowClass% ahk_exe %UE4WindowExe%
+IfWinExist ahk_class %UE4WindowClass%
 {
-	WinActivate ahk_class %UE4WindowClass% ahk_exe %UE4WindowExe%
+	WinActivate ahk_class %UE4WindowClass%
 	OpenDialog()
-	WinWaitActive, %DiffAssetWindowTitle% ahk_class %UE4WindowClass% ahk_exe %UE4WindowExe%, , 0
+	WinWaitActive, %DiffAssetWindowTitle% ahk_class %UE4WindowClass%, , 0
 	If ErrorLevel <> 0
 	{
 		Msgbox, %DiffAssetWindowTitle% が開きませんでした。`n UE4 の DiffAssetOpen プラグインを有効にして、ショートカットキー(Ctrl+Alt+Shift+d)で%DiffAssetWindowTitle% が開く設定になっているか確認してください。
 	}
 	Else
 	{
-		WinActivate %DiffAssetWindowTitle% ahk_class %UE4WindowClass% ahk_exe %UE4WindowExe%
+		WinActivate %DiffAssetWindowTitle% ahk_class %UE4WindowClass%
 		OpenDiffAsset(LeftPath, RightPath, LeftAssetName, RightAssetName)
 	}
 }
