@@ -8,12 +8,17 @@ TortoiseSVN などから DiffAssetOpen プラグインを開くための連携�
 2. 各環境に合わせて以下の設定を行ってください。
 
 	### TortoiseSVN の場合
-	TortoiseSVN の "Setting" - "Diff Viewer" - "Configure the program used for comparing different revisions of files" の Advanced を開いて以下の設定を追加してください。
-
+	TortoiseSVN の "Setting" - "Diff Viewer" - "Configure the program used for comparing different revisions of files" の Advanced をクリックしてください。
+	![Usage_01](https://github.com/t-utsunomiya/DiffAssetOpenRelationTool/blob/master/ReadmeResource/Usage_01.png "使い方01")  
+	.uasset の設定を追加するために Add をクリックしてください。
+	![Usage_02](https://github.com/t-utsunomiya/DiffAssetOpenRelationTool/blob/master/ReadmeResource/Usage_02.png "使い方02")  
+	以下を設定して OK をクリックしてください。
 	```
 	Filename, extension or mini-type: .uasset
 	External Program: wscript.exe "DiffUE4Asset.jsへのパス" %base %mine "^[^\.]+"
 	```
+	![Usage_03](https://github.com/t-utsunomiya/DiffAssetOpenRelationTool/blob/master/ReadmeResource/Usage_03.png "使い方03")  
+	
 	これは TortoiseSVN が保存する一時ファイル名の先頭から'.'までがアセット名になっている前提の設定です。
 	（例: ファイル名が "NewBlueprint1.uasset-rev3.svn000.tmp.uasset" ならアセット名は "NewBlueprint1"）
 
