@@ -14,7 +14,7 @@ TortoiseSVN などから DiffAssetOpen プラグインを開くための連携�
 	![Usage_02](https://github.com/t-utsunomiya/DiffAssetOpenRelationTool/blob/master/ReadmeResource/Usage_02.png "使い方02")  
 	以下を設定して OK をクリックしてください。
 	```
-	Filename, extension or mini-type: .uasset
+	Filename, extension or min-type: .uasset
 	External Program: wscript.exe "DiffUE4Asset.jsへのパス" %base %mine "^[^\.]+"
 	```
 	![Usage_03](https://github.com/t-utsunomiya/DiffAssetOpenRelationTool/blob/master/ReadmeResource/Usage_03.png "使い方03")  
