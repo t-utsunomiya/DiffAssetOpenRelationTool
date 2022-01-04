@@ -32,6 +32,18 @@ TortoiseSVN などから DiffAssetOpen プラグインを開くための連携�
 	TortoiseGit が保存する一時ファイル名の先頭から'-'までがアセット名になっている前提の設定です。
 	（例: ファイル名が "NewBlueprint1-3cc8e21.000.uasset" ならアセット名は "NewBlueprint1"）
 
+	### Perforce の場合
+	"編集" - "プリファレンス" を開いて Diff の"比較アプリケーションを拡張子で指定"に uasset の設定を追加します。
+	を開いて以下の設定を追加してください。
+
+	```
+	拡張子: .uasset
+	アプリケーション: wscript.exe
+	引数: "DiffUE4Asset.jsへのパス" %1 %2 ^[^\#]+
+	```
+	Perforce が保存する一時ファイル名の先頭から'#'までがアセット名になっている前提の設定です。
+	（例: ファイル名が "NewBlueprint1#1.uasset" ならアセット名は "NewBlueprint1"）
+
 3. 設定を終えたら TortoiseSVN のコミットログから .uasset ファイルをダブルクリックするなどして UE4 の DiffAsset ツールが開けます。
 
 [![](https://img.youtube.com/vi/PoC-79Rl0C0/0.jpg)](https://www.youtube.com/watch?v=PoC-79Rl0C0)
