@@ -20,10 +20,8 @@ UE4WindowClass := "UnrealWindow"
 OpenDiffAsset(ByRef LeftPath, ByRef RightPath, ByRef LeftAssetName, ByRef RightAssetName)
 {
 	BlockInput, on
-	SendInput, ^{a down}{a up}%LeftPath%
-	SendInput, {Tab down}{Tab up}^{a down}{a up}%RightPath%
-	SendInput, {Tab down}{Tab up}^{a down}{a up}%LeftAssetName%
-	SendInput, {Tab down}{Tab up}^{a down}{a up}%RightAssetName%
+	clipboard = %LeftPath%,%RightPath%,%LeftAssetName%,%RightAssetName%
+	Send, ^{a down}{a up}^v
 	SendInput, {Tab}{Enter}
 	BlockInput, off
 }
