@@ -43,6 +43,7 @@ TortoiseSVN などから DiffAssetOpen プラグインを開くための連携�
 	```
 	Perforce が保存する一時ファイル名の先頭から'#'までがアセット名になっている前提の設定です。
 	（例: ファイル名が "NewBlueprint1#1.uasset" ならアセット名は "NewBlueprint1"）
+	うまく動かなかったときに wscript.exe へのパスをフルパスで書くと動くことがありました。
 
 3. 設定を終えたら TortoiseSVN のコミットログから .uasset ファイルをダブルクリックするなどして UE4 の DiffAsset ツールが開けます。
 
